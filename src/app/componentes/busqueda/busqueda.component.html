@@ -1,1 +1,31 @@
-<p>busqueda works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Búsquedas</h2>
+    </div>
+    <div class="col">
+      <app-btn-buscar (resultadoBuscar)="buscarPeliculas($event)"></app-btn-buscar >
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10">
+      <br>
+      <app-tabla-pelicula [listadoPeliculas]="listadoPeliculas"></app-tabla-pelicula>
+      <!-- Alert ERROR-->
+      <div *ngIf="noEncontro">
+        <div class="alert alert-danger" role="alert">
+          No se encontraron peliculas!
+        </div>
+        <br>
+        <button id="btnAltaRoute" type="button" style="margin-right:1%;"
+                class="btn btn-success pull-right" (click)="CargarPeliculas()"> Volver </button>
+      </div>
+
+      <div *ngIf="volverBtn">
+        <button id="btnAltaRoute" type="button" style="margin-right:1%;"
+                class="btn btn-success pull-right" (click)="CargarPeliculas()"> Volver </button>
+      </div>
+
+    </div>
+  </div>
+</div>

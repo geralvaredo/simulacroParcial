@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Peliculas</h2>
+    </div>
+    <div class="col">
+      <button id="btnAltaRoute" type="button" style="margin-right:1%;" class="btn btn-outline-success pull-right" (click)="agregarPelicula()"> Agregar </button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-10" style="margin-top: 30px">
+      <app-tabla-pelicula [listadoPeliculas]="peliculas"></app-tabla-pelicula>
+    </div>
+  </div>
+</div>

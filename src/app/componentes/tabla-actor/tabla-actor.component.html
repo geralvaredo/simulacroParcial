@@ -1,1 +1,23 @@
-<p>tabla-actor works!</p>
+<table class="table table-bordered table-striped table-hover">
+  <!-- style="width:50%"> -->
+  <tr>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>Fecha de Nacimiento</th>
+    <th>Foto</th>
+    <th scope="'col'" colspan="2">Acciones</th>
+  </tr>
+  <tr *ngFor="let actor of listadoActores" >
+    <td>{{actor.nombre}}</td>
+    <td>{{actor.apellido}}</td>
+    <td>{{actor.fechaDeNacimiento.toDate() | date:  'dd/MM/yyyy hh:mm'}}</td>
+    <td><img class="imagenDeMenu"  src="{{actor.foto}}" style="width: 70px"></td>
+    <td>
+      <app-detalle-pelicula  [objetoABorrar]="actor" [queBorro]="'actor'" (borrado)="emitirBorrado($event)"></app-detalle-pelicula>
+    </td>
+    <td>
+      <button id="btnMofificar" type="button" class="btn btn-primary pull-right" (click)="EmitirModificado(actor)">Modificar</button>
+      <!-- <app-actor-modificar [actorAModificar]="actor" (seModifico)="RefrescarLista($event)" (click)="mostrarListado = false" ></app-actor-modificar> -->
+    </td>
+  </tr>
+</table>

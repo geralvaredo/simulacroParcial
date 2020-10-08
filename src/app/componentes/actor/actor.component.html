@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Actores</h2>
+    </div>
+    <div *ngIf="mostrarListado" class="col">
+      <button id="btnAltaRoute" type="button" style="margin-right:1%;" class="btn btn-outline-success pull-right" routerLink="/actor/alta"> Agregar </button>
+    </div>
+  </div>
+  <br>
+
+  <div *ngIf="mostrarListado" class="row">
+    <div class="col-10">
+      <app-tabla-actor [listadoActores]="listadoActores" (borrado)="MostrarBorradoYActualizarLista($event)" (modificado)="IrAModificarClick($event)"></app-tabla-actor>
+    </div>
+  </div>
+
+  <!--div *ngIf="!mostrarListado" class="row">
+    <div class="col-8">
+      <app-actor-detalle-borrado [actor]="actorBorrado"></app-actor-detalle-borrado>
+      <button id="btnAltaRoute" type="button" style="margin-top:3%;" class="btn btn-success pull-right" (click)="mostrarListado = true" > Volver </button>
+    </div>
+  </div-->
+
+</div>

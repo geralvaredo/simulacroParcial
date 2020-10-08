@@ -8,7 +8,7 @@ import { LoginComponent } from './componentes/login/login.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
@@ -27,6 +27,11 @@ import { TablaPeliculaComponent } from './componentes/tabla-pelicula/tabla-pelic
 import { DetallePeliculaComponent } from './componentes/detalle-pelicula/detalle-pelicula.component';
 import { BienvenidoComponent } from './componentes/bienvenido/bienvenido.component';
 import { TablaActorComponent } from './componentes/tabla-actor/tabla-actor.component';
+import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
+import { PeliculasComponent } from './componentes/peliculas/peliculas.component';
+import {RouterModule} from '@angular/router';
+import { ActorComponent } from './componentes/actor/actor.component';
+import { BtnBuscarComponent } from './componentes/btn-buscar/btn-buscar.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +47,11 @@ import { TablaActorComponent } from './componentes/tabla-actor/tabla-actor.compo
     TablaPeliculaComponent,
     DetallePeliculaComponent,
     BienvenidoComponent,
-    TablaActorComponent
+    TablaActorComponent,
+    CabeceraComponent,
+    PeliculasComponent,
+    ActorComponent,
+    BtnBuscarComponent
   ],
   imports: [
     BrowserModule,
@@ -51,8 +60,10 @@ import { TablaActorComponent } from './componentes/tabla-actor/tabla-actor.compo
     AngularFireStorageModule,
     AngularFireAuthModule,
     HttpClientModule,
+    RouterModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     BrowserAnimationsModule,
+    NoopAnimationsModule,
     MatInputModule,
     MatToolbarModule,
     MatIconModule,

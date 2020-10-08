@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {NavigationExtras, Router} from '@angular/router';
+import {Actor} from '../../clases/actor';
+import {ActoresService} from '../../servicios/actores.service';
 
 @Component({
   selector: 'app-actor-listado',
@@ -11,5 +14,6 @@ export class ActorListadoComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 }
