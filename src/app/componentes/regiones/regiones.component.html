@@ -1,0 +1,13 @@
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1>Region: {{titulo}}</h1>
+    <p class="lead text-muted">https://restcountries.eu/rest/v2/region/{{titulo}}</p>
+    <p>
+      <button (click)="cambiarRegion('Europe')" class="btn btn-primary my-2"> Europa</button>
+      <button (click)="cambiarRegion('Asia')" class="btn btn-primary my-2"> Asia</button>
+      <button (click)="cambiarRegion('Americas')" class="btn btn-primary my-2"> America</button>
+      <button (click)="cambiarRegion('Africa')" class="btn btn-secondary my-2"> Africa</button>
+      <button (click)="cambiarRegion('Oceania')" class="btn btn-secondary my-2"> Oceania</button>
+    </p>
+  </div>
+</section>
