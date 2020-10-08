@@ -18,14 +18,14 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {environment} from '../environments/environment.prod';
-import { PaisBanderaComponent } from './componentes/pais-bandera/pais-bandera.component';
-import { RegionesComponent } from './componentes/regiones/regiones.component';
-import { PrincipalComponent } from './componentes/principal/principal.component';
-import { PrincipalElementosComponent } from './componentes/principal-elementos/principal-elementos.component';
-import { ListadoComponent } from './componentes/listado/listado.component';
-import { BorrarComponent } from './componentes/borrar/borrar.component';
-import { ModificarComponent } from './componentes/modificar/modificar.component';
-import { DetalleComponent } from './componentes/detalle/detalle.component';
+import { BusquedaComponent } from './componentes/busqueda/busqueda.component';
+import { PeliculaAltaComponent } from './componentes/pelicula-alta/pelicula-alta.component';
+import { ActorAltaComponent } from './componentes/actor-alta/actor-alta.component';
+import { ActorListadoComponent } from './componentes/actor-listado/actor-listado.component';
+import { PeliculaListadoComponent } from './componentes/pelicula-listado/pelicula-listado.component';
+import { TablaPeliculaComponent } from './componentes/tabla-pelicula/tabla-pelicula.component';
+import { DetallePeliculaComponent } from './componentes/detalle-pelicula/detalle-pelicula.component';
+import { BienvenidoComponent } from './componentes/bienvenido/bienvenido.component';
 
 @NgModule({
   declarations: [
@@ -33,14 +33,14 @@ import { DetalleComponent } from './componentes/detalle/detalle.component';
     ErrorComponent,
     LoginComponent,
     RegistroComponent,
-    PaisBanderaComponent,
-    RegionesComponent,
-    PrincipalComponent,
-    PrincipalElementosComponent,
-    ListadoComponent,
-    BorrarComponent,
-    ModificarComponent,
-    DetalleComponent
+    BusquedaComponent,
+    PeliculaAltaComponent,
+    ActorAltaComponent,
+    ActorListadoComponent,
+    PeliculaListadoComponent,
+    TablaPeliculaComponent,
+    DetallePeliculaComponent,
+    BienvenidoComponent
   ],
   imports: [
     BrowserModule,
