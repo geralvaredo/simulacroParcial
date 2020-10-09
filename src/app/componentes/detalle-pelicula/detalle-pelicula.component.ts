@@ -17,7 +17,7 @@ export class DetallePeliculaComponent implements OnInit {
 
   constructor( private pelicula: PeliculasService, private actores: ActoresService ) {}
 
-  private borrar(): void {
+   borrar(): void {
 
     if ( this.queBorro === 'pelicula' ) {
       this.pelicula.borrarPeliculaPorId((this.objetoABorrar as Pelicula).id)

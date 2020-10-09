@@ -32,6 +32,7 @@ import { PeliculasComponent } from './componentes/peliculas/peliculas.component'
 import {RouterModule} from '@angular/router';
 import { ActorComponent } from './componentes/actor/actor.component';
 import { BtnBuscarComponent } from './componentes/btn-buscar/btn-buscar.component';
+import { TablaPaisesComponent } from './componentes/tabla-paises/tabla-paises.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { BtnBuscarComponent } from './componentes/btn-buscar/btn-buscar.componen
     CabeceraComponent,
     PeliculasComponent,
     ActorComponent,
-    BtnBuscarComponent
+    BtnBuscarComponent,
+    TablaPaisesComponent
   ],
   imports: [
     BrowserModule,

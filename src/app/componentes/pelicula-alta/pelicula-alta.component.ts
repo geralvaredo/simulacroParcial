@@ -73,7 +73,7 @@ export class PeliculaAltaComponent implements OnInit {
   }
 
   volver(): void {
-    this.auth.redirect('/peliculas');
+    this.auth.redirect('/peliculas/listado');
   }
 
   ObtenerActores(): void {

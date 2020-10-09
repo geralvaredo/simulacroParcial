@@ -1,7 +1,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-8">
+    <div class="col-6">
       <div class="card">
         <article class="card-body">
           <h4 class="card-title mb-3 lblIng">Ingreso de Actor</h4>
@@ -21,6 +21,12 @@
               <input class="form-control" type="date" placeholder="Ingrese una fecha de estreno.." [(ngModel)]="actor.fechaDeNacimiento" name="fechaDeNacimiento">
               <label *ngIf="fechaDeNacimientoError" class="form-text text-danger">Falta ingresar la fecha de nacimiento</label>
             </div>
+            <div class="form-group block-inline">
+              <label>Sexo</label>
+              <input class="form-control" type="radio" [(ngModel)]="actor.sexo" name="sexo"> Masculino
+              <input class="form-control" type="radio" [(ngModel)]="actor.sexo" name="sexo"> Femenino
+              <label *ngIf="" class="form-text text-danger">Falta ingresar la fecha de nacimiento</label>
+            </div>
             <button id="btnAgregar" type="button" style="margin-right:1%;" class="btn btn-success pull-right" (click)="agregar()"> Agregar </button>
             <button id="btnLimpiar" type="reset" class="btn btn-info" (click)="ReestablecerTodo()"> Limpiar </button>
           </form>
@@ -32,7 +38,11 @@
         </div>
       </div>
     </div>
-
+    <div class="card col-4">
+      <article class="card-body">
+        <app-tabla-paises  [actor]="actor" ></app-tabla-paises>
+      </article>
+    </div>
   </div>
-
+</div>
 

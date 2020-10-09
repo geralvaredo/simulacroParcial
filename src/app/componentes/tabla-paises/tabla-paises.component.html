@@ -1,0 +1,31 @@
+<!--main role="main">
+  <app-regiones (region)="actualizarRegion($event)"></app-regiones>
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let pais of listado">
+          <app-pais-bandera [pais]="pais" (detalle)='detalle($event)' (guardar)='guardar($event)'></app-pais-bandera>
+        </div>
+      </div>
+    </div>
+  </div>
+</main-->
+<div class="col-md-12" >
+  <h4 class="d-flex justify-content-between align-items-center ">
+    <span class="text-muted">Paises</span>
+    <!--span class="badge badge-secondary badge-pill">3</span-->
+  </h4>
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between lh-condensed" *ngFor="let pais of listado">
+      <a (click)="guardarPais(pais.name)"><div class="">
+        <h5 class="my-0"> {{pais.name}}</h5>
+      </div>
+      <span class="text-muted"><img class="bd-placeholder-img card-img-top" style="width: 50px ; height: 50px" [src]='pais.flag' preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail" alt=""></span></a>
+    </li>
+  </ul>
+
+
+</div>
+
+
+

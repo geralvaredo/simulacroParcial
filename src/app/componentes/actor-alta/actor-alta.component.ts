@@ -33,8 +33,7 @@ export class ActorAltaComponent implements OnInit {
 
   agregar(): void{
     if (this.ValidarCampos() !== false) {
-      this.actor.foto = '../../../assets/descarga.jpeg';
-
+      this.actor.foto = './assets/descarga.jpeg';
       this.actores.crearActor(JSON.parse( JSON.stringify(this.actor))).then();
       alert('Se agregó el actor correctamente!');
       this.ReestablecerTodo();
