@@ -11,7 +11,7 @@
 
   <div *ngIf="mostrarListado" class="row">
     <div class="col-10">
-      <app-tabla-actor [listadoActores]="listadoActores" (borrado)="MostrarBorradoYActualizarLista($event)" (modificado)="IrAModificarClick($event)"></app-tabla-actor>
+      <app-tabla-actor (modificado)="IrAModificarClick($event)"></app-tabla-actor>
     </div>
   </div>
 

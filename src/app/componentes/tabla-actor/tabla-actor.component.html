@@ -1,23 +1,34 @@
-<table class="table table-bordered table-striped table-hover">
-  <!-- style="width:50%"> -->
+<!--table class="table table-bordered table-striped table-hover">
   <tr>
     <th>Nombre</th>
     <th>Apellido</th>
     <th>Fecha de Nacimiento</th>
     <th>Foto</th>
-    <th scope="'col'" colspan="2">Acciones</th>
+    <th>Detalle</th>
   </tr>
   <tr *ngFor="let actor of listadoActores" >
     <td>{{actor.nombre}}</td>
     <td>{{actor.apellido}}</td>
-    <td>{{actor.fechaDeNacimiento.toDate() | date:  'dd/MM/yyyy hh:mm'}}</td>
+    <td>{{actor.fechaDeNacimiento}}</td>
     <td><img class="imagenDeMenu"  src="{{actor.foto}}" style="width: 70px"></td>
     <td>
-      <app-detalle-pelicula  [objetoABorrar]="actor" [queBorro]="'actor'" (borrado)="emitirBorrado($event)"></app-detalle-pelicula>
+
     </td>
-    <td>
-      <button id="btnMofificar" type="button" class="btn btn-primary pull-right" (click)="EmitirModificado(actor)">Modificar</button>
-      <!-- <app-actor-modificar [actorAModificar]="actor" (seModifico)="RefrescarLista($event)" (click)="mostrarListado = false" ></app-actor-modificar> -->
-    </td>
+
   </tr>
-</table>
+</table-->
+<ul class="list-group mb-2">
+  <li *ngFor="let actor of listadoActores" class="list-group-item d-flex justify-content-between lh-condensed" (click)="seleccionado(actor)">
+    <div>
+      <h6 class="my-0">{{actor.nombre}} {{actor.apellido}}</h6>
+      <small class="text-muted">{{actor.fechaDeNacimiento}}</small>
+      <br>
+      <small class="text-muted">{{actor.sexo}}</small>
+      <br>
+      <small class="text-muted">{{actor.nacionalidad}}</small>
+    </div>
+    <img [src]="actor.foto" width="120px" height="120px">
+
+  </li>
+</ul>
+

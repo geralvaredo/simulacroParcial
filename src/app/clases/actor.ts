@@ -4,7 +4,7 @@ export class Actor {
   public apellido: string;
   public sexo: string ;
   public nacionalidad: string ;
-  public fechaDeNacimiento: Date;
+  public fechaDeNacimiento: string;
   public foto: string;
 
   constructor() {}

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Pelicula} from '../clases/pelicula';
 import {FirestoreService} from './firestore.service';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -28,4 +29,9 @@ export class ActoresService {
   public borrarActorId(id: string): any {
     return this.fire.borrarDocumento(id, 'actores');
   }
+
+  public contadorActores(): Observable<any> {
+    return this.fire.obtenerTotalDocumentos('actores');
+  }
+
 }

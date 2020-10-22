@@ -13,15 +13,15 @@ export class ActorComponent implements OnInit {
   public listadoActores: Array<Actor>;
   public mostrarListado = true;
   public actorBorrado: Actor;
+  public cantActores = 0;
 
 
   constructor( private actores: ActoresService,
-               private miRouter: Router ) { }
+               private miRouter: Router) { }
 
 
 
   ngOnInit(): void {
-    this.traerActores();
   }
 
   public MostrarBorradoYActualizarLista( actor: Actor): void {
@@ -30,15 +30,9 @@ export class ActorComponent implements OnInit {
     this.mostrarListado = false;
   }
 
-
-
-  public traerActores(): void {
-    this.actores.obtenerActores().then(
-      data => {this.listadoActores = data.sort((a, b) => a.apellido.localeCompare(b.apellido));
-               console.log(data);
-      });
+  public cantidadDeActores(): number {
+    return this.cantActores = this.listadoActores.length;
   }
-
 
   public IrAModificarClick(actor: Actor): void {
     const navigationExtras: NavigationExtras = {
