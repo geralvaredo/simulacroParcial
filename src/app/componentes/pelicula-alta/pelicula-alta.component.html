@@ -1,59 +1,64 @@
-
 <div class="container">
-  <div class="row">
-    <div class="col-8">
-      <div class="card">
-        <article class="card-body">
-          <h4 class="card-title mb-3 lblIng">Ingreso de Peliculas</h4>
-          <form>
-            <div class="form-group">
-              <label>Descripcion</label>
-              <input class="form-control" placeholder="Ingrese nombre.." [(ngModel)]="pelicula.nombre" name="nombre">
-              <label *ngIf="descError" class="form-text text-danger">Falta nombre</label>
-            </div>
-            <div class="form-group">
-              <label>Tipo</label>
-              <select class="form-control" [(ngModel)]="pelicula.tipo" name="tipo">
-                <option value="null" selected>Seleccione un tipo..</option>
-                <option value="terror">terror</option>
-                <option value="comedia">comedia</option>
-                <option value="amor">amor</option>
-                <option value="otros">otros</option>
-              </select>
-              <label *ngIf="tipoError" class="form-text text-danger">Falta seleccionar un tipo</label>
-            </div>
-            <div class="form-group">
-              <label>Fecha de Estreno</label>
-              <input class="form-control" type="date" placeholder="Ingrese una fecha de estreno.." [(ngModel)]="pelicula.fechaDeEstreno" name="fechaDeEstreno">
-              <label *ngIf="fechaDeVencError" class="form-text text-danger">Falta ingresar la fecha de vencimiento</label>
-            </div>
-            <div class="form-group">
-              <label>Publico</label>
-              <input class="form-control" type="number" placeholder="Ingrese el publico.." [(ngModel)]="pelicula.cantidadDePublico" name="publico">
-              <label *ngIf="precioError" class="form-text text-danger">Falta ingresar publico</label>
-            </div>
-            <div class="form-group">
-              <label>Elija el Actor</label>
-              <select class="form-control" name="actor" [(ngModel)]="actor">
-                <option value="null" selected>Seleccione Actor</option>
-                <option  *ngFor="let actor of listadoActores" [ngValue]="actor">{{actor.nombre}} {{actor.apellido}}</option>
-              </select>
-              <label *ngIf="tipoError" class="form-text text-danger">Falta seleccionar un actor</label>
-            </div>
+<div class="d-flex justify-content-around">
+  <h4 class="card-title">Ingreso de Peliculas</h4>
+  <h4 class="card-title">Actores</h4>
+</div>
 
-            <button id="btnAgregar" type="button" style="margin-right:1%;" class="btn btn-success pull-right" (click)="agregar()"> Agregar </button>
-            <button id="btnLimpiar" type="reset" class="btn btn-info" (click)="ReestablecerTodo()"> Limpiar </button>
-          </form>
-        </article>
-      </div>
-    </div>
-    <div class="col-8">
-      <div>
-        <button id="btnAltaRoute" type="button" style="margin-top:3%;" class="btn btn-success pull-right" (click)="volver()"> Volver a Peliculas </button>
-      </div>
+<div class="row">
+  <div class="col-md-4 order-md-2 mb-4">
+    <app-tabla-actor [verDetalle]="false" (actorSeleccionado)="seleccionado($event)"></app-tabla-actor>
+  </div>
+  <div class="col-md-8 order-md-1">
+    <div class="card">
+      <article class="card-body">
+        <div class="row">
+          <div class="col-md-12 mb-3">
+            <label>Descripcion</label>
+            <input class="form-control" placeholder="Ingrese nombre.." [(ngModel)]="pelicula.nombre" name="nombre">
+            <label *ngIf="descError" class="form-text text-danger">Falta nombre de la pelicula</label>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label>Tipo</label>
+            <select class="form-control" [(ngModel)]="pelicula.tipo" name="tipo">
+              <option value="null" selected>Seleccione un tipo..</option>
+              <option value="terror">terror</option>
+              <option value="comedia">comedia</option>
+              <option value="amor">amor</option>
+              <option value="otros">otros</option>
+            </select>
+            <label *ngIf="tipoError" class="form-text text-danger">Falta seleccionar un tipo</label>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label>Fecha de Estreno</label>
+            <input class="form-control" type="date" placeholder="Ingrese una fecha de estreno.." [(ngModel)]="pelicula.fechaDeEstreno" name="fechaDeEstreno">
+            <label *ngIf="fechaDeVencError" class="form-text text-danger">Falta ingresar la fecha de Estreno</label>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>Publico</label>
+            <input class="form-control" type="number" placeholder="Ingrese el publico.." [(ngModel)]="pelicula.cantidadDePublico" name="publico">
+            <label *ngIf="precioError" class="form-text text-danger">Falta ingresar publico</label>
+          </div>
+          <div *ngIf="actor.nombre!=null || actor.nombre!=undefined" class="col-md-8 mb-3">
+            <label>Actor</label>
+            <input class="form-control" disabled  name="actor"  [value] = "actor.nombre + ' ' + actor.apellido">
+            <label *ngIf="actorError" class="form-text text-danger">Falta seleccionar un actor</label>
+          </div>
+          <div class="col-md-12 mb-3">
+            <div class="d-flex justify-content-center">
+              <button id="btnAgregar" type="button" style="margin-right:1%;" class="btn btn-success pull-right" (click)="agregar()"> Agregar </button>
+              <button id="btnLimpiar" type="reset" class="btn btn-info" (click)="ReestablecerTodo()"> Limpiar </button>
+            </div>
+          </div>
+          <div class="col-md-12 mb-3">
+            <div class="d-flex justify-content-center">
+              <button id="btnAltaRoute" type="button" style="margin-top:3%;" class="btn btn-warning" (click)="volver()"> Volver a Peliculas </button>
+            </div>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
-
+</div>
 </div>
 
 

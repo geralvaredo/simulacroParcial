@@ -21,8 +21,6 @@ import {environment} from '../environments/environment.prod';
 import { BusquedaComponent } from './componentes/busqueda/busqueda.component';
 import { PeliculaAltaComponent } from './componentes/pelicula-alta/pelicula-alta.component';
 import { ActorAltaComponent } from './componentes/actor-alta/actor-alta.component';
-import { ActorListadoComponent } from './componentes/actor-listado/actor-listado.component';
-import { PeliculaListadoComponent } from './componentes/pelicula-listado/pelicula-listado.component';
 import { TablaPeliculaComponent } from './componentes/tabla-pelicula/tabla-pelicula.component';
 import { DetallePeliculaComponent } from './componentes/detalle-pelicula/detalle-pelicula.component';
 import { BienvenidoComponent } from './componentes/bienvenido/bienvenido.component';
@@ -33,6 +31,12 @@ import {RouterModule} from '@angular/router';
 import { ActorComponent } from './componentes/actor/actor.component';
 import { BtnBuscarComponent } from './componentes/btn-buscar/btn-buscar.component';
 import { TablaPaisesComponent } from './componentes/tabla-paises/tabla-paises.component';
+import { DetallePaisComponent } from './componentes/detalle-pais/detalle-pais.component';
+import { DetalleActoresComponent } from './componentes/detalle-actores/detalle-actores.component';
+import { BtnBorrarComponent } from './componentes/btn-borrar/btn-borrar.component';
+import { BtnModificarComponent } from './componentes/btn-modificar/btn-modificar.component';
+import { ActorPeliculaComponent } from './componentes/actor-pelicula/actor-pelicula.component';
+import { BtnDetalleComponent } from './componentes/btn-detalle/btn-detalle.component';
 
 @NgModule({
   declarations: [
@@ -43,8 +47,6 @@ import { TablaPaisesComponent } from './componentes/tabla-paises/tabla-paises.co
     BusquedaComponent,
     PeliculaAltaComponent,
     ActorAltaComponent,
-    ActorListadoComponent,
-    PeliculaListadoComponent,
     TablaPeliculaComponent,
     DetallePeliculaComponent,
     BienvenidoComponent,
@@ -53,7 +55,13 @@ import { TablaPaisesComponent } from './componentes/tabla-paises/tabla-paises.co
     PeliculasComponent,
     ActorComponent,
     BtnBuscarComponent,
-    TablaPaisesComponent
+    TablaPaisesComponent,
+    DetallePaisComponent,
+    DetalleActoresComponent,
+    BtnBorrarComponent,
+    BtnModificarComponent,
+    ActorPeliculaComponent,
+    BtnDetalleComponent
   ],
   imports: [
     BrowserModule,

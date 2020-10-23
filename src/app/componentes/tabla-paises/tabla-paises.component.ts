@@ -12,20 +12,23 @@ export class TablaPaisesComponent implements OnInit {
 
   listado: Array<any> = [];
   @Input() actor: Actor;
+  public seleccionado: boolean;
 
   constructor(private pais: PaisesService) { }
 
   ngOnInit(): void {
-    this.obtenerPaises('Americas');
+    this.obtenerPaises('');
+    this.seleccionado = false;
   }
 
   obtenerPaises(region: string): void {
     this.pais.obtenerPaises(region).subscribe(
       (lista: Array<Paises>) => {
-        for (let i = 0; i < 5; i++) {
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < lista.length; i++) {
           this.listado.push(new Paises(lista[i].name, lista[i].region, lista[i].flag));
         }
-      })   ;
+      });
     console.log(this.listado);
 
   }
@@ -34,6 +37,7 @@ export class TablaPaisesComponent implements OnInit {
     console.log(pais);
     console.log(this.actor);
     this.actor.nacionalidad = pais.toString();
+    this.seleccionado = true;
   }
 
 

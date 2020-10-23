@@ -10,6 +10,8 @@ import {ActoresService} from '../../servicios/actores.service';
 export class TablaActorComponent implements OnInit {
 
   public listadoActores: Array<Actor> = Array<Actor>();
+  @Input() verDetalle = true;
+  public actor: Actor;
   @Output() actorSeleccionado: EventEmitter<any> = new EventEmitter<any>();
   @Output() modificado: EventEmitter<any> = new EventEmitter<any>();
 
@@ -25,19 +27,38 @@ export class TablaActorComponent implements OnInit {
   cargaActores(): void {
     this.ac.obtenerActores().then(
       data => {this.listadoActores = data.sort((a, b) => a.apellido.localeCompare(b.apellido));
-               console.log(data);
+              // console.log(data);
       });
-  }
-
-
-
-
-  public EmitirModificado( actor: Actor): void {
-    this.modificado.emit(actor);
   }
 
   public seleccionado(actor: Actor): void {
     this.actorSeleccionado.emit(actor);
   }
+
+  public seleccionActor(actor: Actor): void{
+    this.actor = actor;
+  }
+
+  borrarActor(a: Actor): void {
+    this.ac.borrarActorId(a.id).then(x => {
+      console.log('borrado');
+      this.actor = null;
+      location.reload();
+    })
+    .catch( error => {
+      console.log('error al borrar actor', error);
+    });
+  }
+
+  modificarActor(e): void {
+    this.ac.modificarActor(e).then(x => {
+      console.log('actor modificado');
+      this.actor = null;
+    })
+    .catch(error => {
+      console.log('error al modificar el actor', error);
+    });
+  }
+
 
 }

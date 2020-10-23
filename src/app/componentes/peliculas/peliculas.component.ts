@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Pelicula} from '../../clases/pelicula';
 import {PeliculasService} from '../../servicios/peliculas.service';
-import {Router} from '@angular/router';
 import {AuthService} from '../../servicios/auth.service';
 
 @Component({
@@ -12,7 +11,7 @@ import {AuthService} from '../../servicios/auth.service';
 export class PeliculasComponent implements OnInit {
 
   public peliculas: Array<Pelicula>;
-
+  public cantidadPeliculas: number;
   constructor(private pelicula: PeliculasService, private auth: AuthService ) { }
 
   ngOnInit(): void {
@@ -24,6 +23,10 @@ export class PeliculasComponent implements OnInit {
       data => {this.peliculas = data.sort((a, b) => a.nombre.localeCompare(b.nombre));
                console.log(data);
       });
+  }
+
+  cantidadDePeliculas(): number {
+    return this.cantidadPeliculas = this.peliculas.length;
   }
 
   agregarPelicula(): void {

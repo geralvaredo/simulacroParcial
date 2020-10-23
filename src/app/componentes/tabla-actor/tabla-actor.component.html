@@ -1,34 +1,38 @@
-<!--table class="table table-bordered table-striped table-hover">
-  <tr>
-    <th>Nombre</th>
-    <th>Apellido</th>
-    <th>Fecha de Nacimiento</th>
-    <th>Foto</th>
-    <th>Detalle</th>
-  </tr>
-  <tr *ngFor="let actor of listadoActores" >
-    <td>{{actor.nombre}}</td>
-    <td>{{actor.apellido}}</td>
-    <td>{{actor.fechaDeNacimiento}}</td>
-    <td><img class="imagenDeMenu"  src="{{actor.foto}}" style="width: 70px"></td>
-    <td>
-
-    </td>
-
-  </tr>
-</table-->
-<ul class="list-group mb-2">
+<ul class="list-group order-md-2 mb-4">
   <li *ngFor="let actor of listadoActores" class="list-group-item d-flex justify-content-between lh-condensed" (click)="seleccionado(actor)">
     <div>
       <h6 class="my-0">{{actor.nombre}} {{actor.apellido}}</h6>
-      <small class="text-muted">{{actor.fechaDeNacimiento}}</small>
+      <!--small class="text-muted">{{actor.fechaDeNacimiento}}</small>
       <br>
       <small class="text-muted">{{actor.sexo}}</small>
       <br>
-      <small class="text-muted">{{actor.nacionalidad}}</small>
+      <small class="text-muted">{{actor.nacionalidad}}</small-->
     </div>
-    <img [src]="actor.foto" width="120px" height="120px">
-
+    <img *ngIf="!verDetalle" [src]="actor.foto" width="150px" height="150px">
+    <app-btn-detalle [actor]="actor" (actorSeleccionado)="seleccionActor(actor)"></app-btn-detalle>
   </li>
 </ul>
+  <div *ngIf="verDetalle && actor!=undefined" class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <app-btn-borrar (actorBorrado)="borrarActor(actor)"></app-btn-borrar>
+        </div>
+        <div class="col-md-5">
+          <app-detalle-actores  [actorSeleccionado]="actor"></app-detalle-actores>
+        </div>
+        <div class="col-md-5">
+          <app-btn-modificar  [actorSeleccionado]="actor"  (actor)="modificarActor($event)"></app-btn-modificar>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+
+
 

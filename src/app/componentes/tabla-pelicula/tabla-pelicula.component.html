@@ -1,4 +1,27 @@
-<table class="table table-bordered table-striped table-hover">
+<ul class="list-group order-md-2 mb-4">
+  <li *ngFor="let pelicula of listadoPeliculas" class="list-group-item d-flex justify-content-between lh-condensed" (click)="seleccionado(pelicula)">
+    <div>
+      <h6 class="my-0">{{pelicula.nombre}}</h6>
+    </div>
+    <button type="button" class="btn btn-outline-primary" (click)="seleccionPelicula(pelicula)">Detalle</button>
+  </li>
+</ul>
+<div  *ngIf="verDetalle && pelicula!=undefined" class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <app-btn-borrar (actorBorrado)="borrarPelicula(pelicula)"></app-btn-borrar>
+      </div>
+      <div class="col-md-5">
+        <app-detalle-pelicula  [peliculaSeleccionada]="pelicula"></app-detalle-pelicula>
+      </div>
+      <div class="col-md-5">
+        <app-btn-modificar  [peliculaSeleccionada]="pelicula"  (pelicula)="modificarPelicula($event)"></app-btn-modificar>
+      </div>
+    </div>
+  </div>
+</div>
+<!--table class="table table-bordered table-striped table-hover">
   <tr>
     <th>Nombre</th>
     <th>Tipo</th>
@@ -8,18 +31,14 @@
     <th>Acciones</th>
   </tr>
   <tr *ngFor="let pelicula of listadoPeliculas" >
-    <!-- <td>{{pelicula.id}}</td> -->
+    < <td>{{pelicula.id}}</td> >
     <th>{{pelicula.nombre}}</th>
     <td>{{pelicula.tipo}}</td>
     <td>{{pelicula.fechaDeEstreno}}</td>
-    <td>{{pelicula.cantidadDePublico}}</td>
+    <td>{{pelicula.cantidadDePublico }}</td>
     <td><img src="{{pelicula.foto}}" alt="" style="width: 70px"></td>
-    <td>
-      <app-detalle-pelicula [objetoABorrar]= "pelicula" [queBorro]="'pelicula'" (borrado)="refrescarLista($event)"></app-detalle-pelicula>
-    </td>
-    <!-- <td>
+    <<td>
       <button id="btnMofificar" type="button" class="btn btn-primary pull-right" (click)="IrAModificarClick(producto)">Modificar</button>
-    </td> -->
+    </td>
   </tr>
-
-</table>
+</table-->
