@@ -1,0 +1,37 @@
+<div class="container">
+  <ul class="list-group order-md-2 mb-4">
+    <li *ngFor="let actor of listadoActores" class="list-group-item d-flex justify-content-between lh-condensed" (click)="seleccionado(actor)">
+      <div>
+        <h6 class="my-0">{{actor.nombre}} {{actor.apellido}}</h6>
+        <!--small class="text-muted">{{actor.fechaDeNacimiento}}</small>
+        <br>
+        <small class="text-muted">{{actor.sexo}}</small>
+        <br>
+        <small class="text-muted">{{actor.nacionalidad}}</small-->
+      </div>
+      <img  [src]="actor.foto" width="150px" height="150px">
+      <app-btn-detalle  [actor]="actor" (actorSeleccionado)="seleccionActor(actor)"></app-btn-detalle>
+    </li>
+  </ul>
+</div>
+<div class="container">
+  <div *ngIf="detallePeliActor && actor!==undefined" class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <app-detalle-pais [actor]="actor"></app-detalle-pais>
+        </div>
+        <div class="col-md-4">
+          <app-detalle-pelicula [peliculaSeleccionada]="pelicula"></app-detalle-pelicula>
+        </div>
+        <div class="col-md-4">
+          <app-detalle-actores [actorSeleccionado]="actor"></app-detalle-actores>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+

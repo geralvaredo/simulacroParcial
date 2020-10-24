@@ -1,0 +1,15 @@
+<h4 class="d-flex justify-content-between align-items-center mb-3">
+  <span class="text-muted">Paises</span>
+</h4>
+<div class="scroll">
+  <ul class="list-group mb-3">
+    <li class="list-group-item d-flex justify-content-between lh-condensed">
+      <div>
+        <h6 class="my-0">{{actor.nacionalidad.name}}</h6>
+        <small class="text-muted">{{actor.nacionalidad.capital}}</small>
+      </div>
+      <!-- <span class="text-muted"></span> -->
+      <img [src]="actor.nacionalidad.flag" width="120px" height="80px">
+    </li>
+  </ul>
+</div>
