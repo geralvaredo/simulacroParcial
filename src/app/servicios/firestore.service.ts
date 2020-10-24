@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs';
 import {AngularFirestore} from '@angular/fire/firestore';
+import {ActorAltaComponent} from '../componentes/actor-alta/actor-alta.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirestoreService {
+
 
   constructor(private db: AngularFirestore) { }
 
@@ -26,10 +27,12 @@ export class FirestoreService {
     });
   }
 
+  obtenerTotalDocumentos(collection: string): any{
+    return this.db.collection(collection).valueChanges();
+  }
+
   agregarDocumento(objeto: any, collection: string): any {
-    const id = this.db.createId();
-    objeto.id = id;
-    return this.db.collection(collection).doc(id).set(objeto);
+      return this.db.collection(collection).doc(objeto.id).set(objeto);
   }
 
   modificarDocumento(objeto: any, collection: string): any {
@@ -42,6 +45,5 @@ export class FirestoreService {
     const objetoDoc = this.db.collection(`${collection}`).doc(id);
     return objetoDoc.delete();
   }
-
 
 }

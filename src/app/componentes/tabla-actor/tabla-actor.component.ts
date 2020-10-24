@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Actor} from '../../clases/actor';
 import {ActoresService} from '../../servicios/actores.service';
+import {Pelicula} from '../../clases/pelicula';
 
 @Component({
   selector: 'app-tabla-actor',
@@ -10,11 +11,9 @@ import {ActoresService} from '../../servicios/actores.service';
 export class TablaActorComponent implements OnInit {
 
   public listadoActores: Array<Actor> = Array<Actor>();
-  @Input() verDetalle = true;
   public actor: Actor;
+  @Input() verDetalle = true;
   @Output() actorSeleccionado: EventEmitter<any> = new EventEmitter<any>();
-  @Output() modificado: EventEmitter<any> = new EventEmitter<any>();
-
   usuario;
 
   constructor(private ac: ActoresService) { }
@@ -54,11 +53,14 @@ export class TablaActorComponent implements OnInit {
     this.ac.modificarActor(e).then(x => {
       console.log('actor modificado');
       this.actor = null;
+      location.reload();
     })
     .catch(error => {
       console.log('error al modificar el actor', error);
     });
   }
+
+
 
 
 }

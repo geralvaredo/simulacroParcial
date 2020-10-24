@@ -67,7 +67,7 @@ export class ActorAltaComponent implements OnInit {
       this.sexoError = true ;
       result = false ;
     }
-    if (this.actor.nacionalidad === null || this.actor.nacionalidad === undefined){
+    if (this.actor.nacionalidad.name === null || this.actor.nacionalidad.name === undefined){
       this.paisError = true ;
       result = false ;
     }

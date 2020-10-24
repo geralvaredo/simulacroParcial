@@ -38,7 +38,7 @@
               </div>
               <div *ngIf="actor.nacionalidad != undefined" class="col-md-12 mb-3">
                 <label>Pais</label>
-                <input disabled class="form-control" type="text" id="nombrePais" [value]="actor.nacionalidad" min="1">
+                <input disabled class="form-control" type="text" id="nombrePais" [value]="actor.nacionalidad.name" min="1">
                 <label *ngIf="paisError" class="form-text text-danger">Falta ingresar el pais</label>
               </div>
               <div class="col-md-12 mb-3">

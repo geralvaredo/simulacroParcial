@@ -26,17 +26,13 @@ export class TablaPaisesComponent implements OnInit {
       (lista: Array<Paises>) => {
         // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < lista.length; i++) {
-          this.listado.push(new Paises(lista[i].name, lista[i].region, lista[i].flag));
+          this.listado.push(new Paises(lista[i].name, lista[i].region, lista[i].flag, lista[i].capital));
         }
       });
-    console.log(this.listado);
-
   }
 
-  guardarPais(pais: string): void{
-    console.log(pais);
-    console.log(this.actor);
-    this.actor.nacionalidad = pais.toString();
+  guardarPais(pais: Paises): void{
+    this.actor.nacionalidad = pais;
     this.seleccionado = true;
   }
 

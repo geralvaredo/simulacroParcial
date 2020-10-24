@@ -10,7 +10,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-2">
-        <app-btn-borrar (actorBorrado)="borrarPelicula(pelicula)"></app-btn-borrar>
+        <app-btn-borrar [peliculaBorrar] = "pelicula" (actorBorrado)="borrarPelicula(pelicula)"></app-btn-borrar>
       </div>
       <div class="col-md-5">
         <app-detalle-pelicula  [peliculaSeleccionada]="pelicula"></app-detalle-pelicula>

@@ -9,10 +9,10 @@
       <small class="text-muted">{{actor.nacionalidad}}</small-->
     </div>
     <img *ngIf="!verDetalle" [src]="actor.foto" width="150px" height="150px">
-    <app-btn-detalle [actor]="actor" (actorSeleccionado)="seleccionActor(actor)"></app-btn-detalle>
+    <app-btn-detalle *ngIf="verDetalle" [actor]="actor" (actorSeleccionado)="seleccionActor(actor)"></app-btn-detalle>
   </li>
 </ul>
-  <div *ngIf="verDetalle && actor!=undefined" class="jumbotron jumbotron-fluid">
+  <div *ngIf="verDetalle && actor!==undefined" class="jumbotron jumbotron-fluid">
     <div class="container">
       <div class="row">
         <div class="col-md-2">
@@ -24,15 +24,8 @@
         <div class="col-md-5">
           <app-btn-modificar  [actorSeleccionado]="actor"  (actor)="modificarActor($event)"></app-btn-modificar>
         </div>
-
       </div>
     </div>
-
-
   </div>
-
-
-
-
 
 
