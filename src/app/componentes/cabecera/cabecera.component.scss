@@ -1,0 +1,63 @@
+.bla:hover{
+  cursor: pointer;
+  background-color: orange;
+  color: white;
+}
+
+.bla{
+  display: block;
+  margin-left: 4px;
+  margin-right: 2px;
+  border-radius: 10px;
+  color: #000;
+  background-color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+}
+
+li a{
+  display: block;
+  margin-left: 2px;
+  margin-right: 2px;
+  border-radius: 10px;
+
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color on hover */
+li a:hover {
+  background-color: orange;
+  color: black;
+}
+
+.active {
+  background-color: orange;
+  color: white;
+}
+
+a{
+  color: black;
+}
+
+#home{
+  display: block;
+  padding: 8px 16px;
+  margin-left: 2px;
+  margin-right: 2px;
+  border-radius: 10px;
+
+}
+
+#home:hover{
+  background-color: orange;
+}
+

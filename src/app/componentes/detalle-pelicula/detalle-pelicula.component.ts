@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Actor} from '../../clases/actor';
+import {Pelicula} from '../../clases/pelicula';
+import {PeliculasService} from '../../servicios/peliculas.service';
+import {ActoresService} from '../../servicios/actores.service';
 
 @Component({
   selector: 'app-detalle-pelicula',
@@ -7,7 +11,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetallePeliculaComponent implements OnInit {
 
-  constructor() { }
+   @Input() peliculaSeleccionada: Pelicula;
+  constructor(  ) {}
+
 
   ngOnInit(): void {
   }

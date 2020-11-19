@@ -1,1 +1,11 @@
-<p>detalle-pelicula works!</p>
+<div class="card" style="width: 18rem; height: 28rem">
+  <div class="card-body">
+    <h5 class="card-title">{{peliculaSeleccionada.nombre}} </h5>
+    <h6 class="card-text mb-2 text-muted">Tipo: {{peliculaSeleccionada.tipo}}</h6>
+    <h6 class="card-text mb-2 text-muted">Cantidad de Publico: {{peliculaSeleccionada.cantidadDePublico}}</h6>
+    <h6 class="card-text mb-2 text-muted">Fecha de Estreno: {{peliculaSeleccionada.fechaDeEstreno}}</h6>
+    <img [src]="peliculaSeleccionada.foto" width="180px" height="250px" class="rounded mx-auto d-block" alt="...">
+    <!--img [src]="actorSeleccionado.foto" class="mx-auto d-block" width="180px" height="250px"-->
+  </div>
+</div>
+<br>

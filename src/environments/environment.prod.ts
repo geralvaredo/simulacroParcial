@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  urlPaises: 'https://restcountries.eu/rest/v2/region/',
+  urlPaises: 'https://restcountries.eu/rest/v2/',
   jugadores: 'https://api.mocki.io/v1/75aa447e',
   firebaseConfig : {
     apiKey: 'AIzaSyAG-thFgGt5SNtYo7lpto5Bdc6M_HmF3gI',

@@ -19,16 +19,26 @@ export class AuthService {
 
   async login(usuario: Usuario): Promise<firebase.User> {
     try {
-      const {user} = await this.afAuth.signInWithEmailAndPassword(usuario.email, usuario.password);
+      const {user} = await this.afAuth.signInWithEmailAndPassword(usuario.email, usuario.pass);
+      if (user){
+        this.guardarEnStorage(user);
+      }
       return user;
     } catch (error) {
       console.log(this.errorLogin, error);
     }
   }
 
+
+  guardarEnStorage(user): void {
+     sessionStorage.setItem('usuario', JSON.stringify(user));
+    }
+
+
+
   async register(usuario: Usuario): Promise<firebase.User> {
     try {
-      const {user} = await this.afAuth.createUserWithEmailAndPassword(usuario.email, usuario.password);
+      const {user} = await this.afAuth.createUserWithEmailAndPassword(usuario.email, usuario.pass);
       await this.verificationEmailFirebase();
       return user;
     } catch (error) {
@@ -48,6 +58,7 @@ export class AuthService {
 
   async logOut(): Promise<void> {
     await this.afAuth.signOut().then(res => {
+      this.guardarEnStorage(undefined);
       this.redirect(this.paginaLogin);
       return res;
     }).catch(error => {

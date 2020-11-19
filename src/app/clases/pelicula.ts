@@ -1,8 +1,11 @@
+import {Actor} from './actor';
+
 export class Pelicula {
-    id: number ;
+    id: string ;
     nombre: string ;
     tipo: string ;
-    fechaDeEstreno: string ;
+    fechaDeEstreno: Date ;
     cantidadDePublico: number;
     foto: string ;
+    actor: Actor ;
 }

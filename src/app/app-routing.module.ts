@@ -7,19 +7,23 @@ import {BienvenidoComponent} from './componentes/bienvenido/bienvenido.component
 import {BusquedaComponent} from './componentes/busqueda/busqueda.component';
 import {PeliculaAltaComponent} from './componentes/pelicula-alta/pelicula-alta.component';
 import {ActorAltaComponent} from './componentes/actor-alta/actor-alta.component';
-import {ActorListadoComponent} from './componentes/actor-listado/actor-listado.component';
-import {PeliculaListadoComponent} from './componentes/pelicula-listado/pelicula-listado.component';
+import {PeliculasComponent} from './componentes/peliculas/peliculas.component';
+import {ActorComponent} from './componentes/actor/actor.component';
+import {ActorPeliculaComponent} from './componentes/actor-pelicula/actor-pelicula.component';
 
 const routes: Routes = [
-  {path: 'bienvenido' , component : BienvenidoComponent },
-  {path: 'busqueda' , component : BusquedaComponent},
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: 'login', component: LoginComponent},
+  {path: 'bienvenido' , component : BienvenidoComponent , data: {animation: 'bienvenido'}},
+  {path: 'busqueda' , component : BusquedaComponent, data: {animation: 'busqueda'}},
+  {path: 'peliculas/listado' , component : PeliculasComponent, data: {animation: 'peliculas'} },
   {path: 'peliculas/alta' , component : PeliculaAltaComponent},
-  {path: 'peliculas/listado' , component : PeliculaListadoComponent},
+  {path: 'actor/listado' , component : ActorComponent , data: {animation: 'actores'} },
   {path: 'actor/alta' , component : ActorAltaComponent },
-  {path: 'actor/listado' , component : ActorListadoComponent },
   {path: 'error', component : ErrorComponent},
   {path: 'registro' , component: RegistroComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'actorPelicula' , component: ActorPeliculaComponent }
+
 ];
 
 @NgModule({

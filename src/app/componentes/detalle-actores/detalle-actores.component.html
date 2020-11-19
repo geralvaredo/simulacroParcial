@@ -1,0 +1,11 @@
+<div class="card" style="width: 18rem; height: 25rem">
+  <div class="card-body">
+    <h5 class="card-title">{{actorSeleccionado.nombre}} {{actorSeleccionado.apellido}}</h5>
+    <h6 class="card-text mb-2 text-muted">Sexo: {{actorSeleccionado.sexo}}</h6>
+    <h6 class="card-text mb-2 text-muted">Nacionalidad: {{actorSeleccionado.nacionalidad.name}}</h6>
+    <h6 class="card-text mb-2 text-muted">Fecha de nacimiento: {{actorSeleccionado.fechaDeNacimiento}}</h6>
+     <!--img [src]="peliculaSeleccionada.foto_pelicula" class="rounded mx-auto d-block" alt="...">-->
+    <img [src]="actorSeleccionado.foto" class="mx-auto d-block" width="180px" height="250px">
+  </div>
+</div>
+<br>

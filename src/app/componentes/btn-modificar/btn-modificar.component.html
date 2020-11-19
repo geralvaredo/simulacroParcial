@@ -1,0 +1,93 @@
+<div *ngIf="actorSeleccionado!=undefined" class="row">
+  <div class="col-md-8 order-md-1">
+    <h4 class="mb-3">Actor</h4>
+    <form class="needs-validation" novalidate>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="firstName">Nombre</label>
+          <input type="text" class="form-control" id="firstName" placeholder="Nombre..." [(ngModel)]="actorSeleccionado.nombre" [ngModelOptions]="{standalone: true}" required>
+          <div class="invalid-feedback">
+            Valid first name is required.
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="lastName">Apellido</label>
+          <input type="text" class="form-control" id="lastName" placeholder="Apellido..." [(ngModel)]="actorSeleccionado.apellido" [ngModelOptions]="{standalone: true}" required>
+          <div class="invalid-feedback">
+            Valid last name is required.
+          </div>
+        </div>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Sexo</label>
+        </div>
+        <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="actorSeleccionado.sexo" [ngModelOptions]="{standalone: true}">
+          <option value="Masculino">Masculino</option>
+          <option value="Femenino">Femenino</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="fecha" class="col-form-label">Fecha</label>
+        <div>
+          <input class="form-control" type="date" id="fecha"   [(ngModel)]=" actorSeleccionado.fechaDeNacimiento" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="nacionalidad">Nacionalidad</label>
+        <input disabled type="text" class="form-control" id="nacionalidad" placeholder="Apellido..." [(ngModel)]="actorSeleccionado.nacionalidad.name" [ngModelOptions]="{standalone: true}" required>
+      </div>
+
+      <hr class="mb-4">
+    </form>
+    <p><a class="btn btn-secondary" role="button" (click)="emitirActor()">Guardar cambios</a></p>
+  </div>
+</div>
+<div *ngIf="peliculaSeleccionada!=undefined" class="row">
+  <div class="col-md-8 order-md-1">
+    <h4 class="mb-3">Pelicula</h4>
+    <form class="needs-validation" novalidate>
+      <div class="row">
+        <div class="col-md-12 mb-4">
+          <label for="firstName">Nombre</label>
+          <input type="text" class="form-control" id="nombre" placeholder="pelicula..." [(ngModel)]="peliculaSeleccionada.nombre" [ngModelOptions]="{standalone: true}" required>
+          <div class="invalid-feedback">
+            Valid first name is required.
+          </div>
+        </div>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Tipo</label>
+        </div>
+        <select class="custom-select" id="tipo" [(ngModel)]="peliculaSeleccionada.tipo" [ngModelOptions]="{standalone: true}">
+          <option value="null" selected>Seleccione un tipo..</option>
+          <option value="terror">terror</option>
+          <option value="comedia">comedia</option>
+          <option value="amor">amor</option>
+          <option value="otros">otros</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="fecha" class="col-form-label">Fecha de Estreno</label>
+        <div>
+          <input class="form-control" type="date" id="estreno"   [(ngModel)]=" peliculaSeleccionada.fechaDeEstreno" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="publico">Cantidad de publico</label>
+        <input  type="text" class="form-control" id="publico" placeholder="publico..." [(ngModel)]="peliculaSeleccionada.cantidadDePublico" [ngModelOptions]="{standalone: true}" required>
+      </div>
+
+      <hr class="mb-4">
+    </form>
+    <p><a class="btn btn-secondary" role="button" (click)="emitirPelicula()">Guardar cambios</a></p>
+  </div>
+</div>
+

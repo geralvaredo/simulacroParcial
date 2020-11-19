@@ -1,1 +1,63 @@
-<p>actor-alta works!</p>
+
+<div class="container">
+  <div class="d-flex justify-content-around">
+    <h4 class="card-title">Ingreso de Actor</h4>
+    <h4 class="card-title">Paises</h4>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 order-md-2 mb-4">
+        <app-tabla-paises  [actor]="actor"></app-tabla-paises>
+    </div>
+      <div class="col-md-8 order-md-1">
+        <div class="card">
+          <article class="card-body">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label>Nombre</label>
+                <input class="form-control" placeholder="Ingrese un nombre.." [(ngModel)]="actor.nombre" name="nombre">
+                <label *ngIf="nombreError" class="form-text text-danger">Falta nombre</label>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label>Apellido</label>
+                <input class="form-control" placeholder="Ingrese un apellido.." [(ngModel)]="actor.apellido" name="apellido">
+                <label *ngIf="apellidoError" class="form-text text-danger">Falta apellido</label>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label>Fecha de Nacimiento</label>
+                <input class="form-control" type="date" placeholder="Ingrese una fecha de estreno.." [(ngModel)]="actor.fechaDeNacimiento" name="fechaDeNacimiento">
+                <label *ngIf="fechaDeNacimientoError" class="form-text text-danger">Falta ingresar la fecha de nacimiento</label>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label>Sexo</label>
+                <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="actor.sexo" [ngModelOptions]="{standalone: true}">
+                  <option value="Masculino">Masculino</option>
+                  <option value="Femenino">Femenino</option>
+                </select>
+                <label *ngIf="sexoError" class="form-text text-danger">Falta ingresar la fecha de nacimiento</label>
+              </div>
+              <div *ngIf="actor.nacionalidad != undefined" class="col-md-12 mb-3">
+                <label>Pais</label>
+                <input disabled class="form-control" type="text" id="nombrePais" [value]="actor.nacionalidad.name" min="1">
+                <label *ngIf="paisError" class="form-text text-danger">Falta ingresar el pais</label>
+              </div>
+              <div class="col-md-12 mb-3">
+                <div class="d-flex justify-content-center">
+                  <button id="btnAgregar" type="button" style="margin-right:1%;" class="btn btn-success pull-right" (click)="agregar()"> Agregar </button>
+                  <button id="btnLimpiar" type="reset" class="btn btn-info" (click)="ReestablecerTodo()"> Limpiar </button>
+                </div>
+              </div>
+              <div class="col-md-12 mb-3">
+                <div class="d-flex justify-content-center">
+                  <button id="btnAltaRoute" type="button" style="margin-top:3%;" class="btn btn-warning" (click)="volver()"> Volver a Actores </button>
+                </div>
+              </div>
+            </div>
+          </article>
+      </div>
+      </div>
+
+  </div>
+
+</div>
+

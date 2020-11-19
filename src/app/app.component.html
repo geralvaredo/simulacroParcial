@@ -1,2 +1,15 @@
+<div class="container-fluid">
+  <div class="row">
+    <div *ngIf="ruta != '/login' && ruta !='/registro'" class="col">
+      <app-cabecera></app-cabecera>
+    </div>
+  </div>
+  <div class="row">
+    <div  class="col anim">
+      <div  [@routeAnimations]="prepareRoute(outlet)" >
+        <router-outlet #outlet="outlet"></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
 
-<router-outlet></router-outlet>
