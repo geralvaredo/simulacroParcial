@@ -27,11 +27,11 @@ export class PeliculaAltaComponent implements OnInit {
               ) { }
 
   ngOnInit(): void {
-    this.ReestablecerTodo();
-    this.ObtenerActores();
+    this.reestablecerTodo();
+    this.obtenerActores();
   }
 
-  ReestablecerTodo(): void {
+  reestablecerTodo(): void {
     this.actor = null;
     this.pelicula = new Pelicula();
     this.actor = new Actor();
@@ -51,15 +51,15 @@ export class PeliculaAltaComponent implements OnInit {
   }
 
   agregar(): void {
-    if (this.ValidarCampos() !== false) {
+    if (this.validarCampos() !== false) {
       this.pelicula.foto = '../../../assets/descarga.jpeg';
       // this.pelicula.actor = this.actor;
       this.peliculas.crearPelicula(JSON.parse( JSON.stringify(this.pelicula)));
-      this.ReestablecerTodo();
+      this.reestablecerTodo();
     }
   }
 
-  ValidarCampos(): boolean{
+  validarCampos(): boolean{
     let result = true;
     if (this.pelicula.nombre === '' || this.pelicula.nombre === undefined) {
       this.descError = true;
@@ -85,7 +85,7 @@ export class PeliculaAltaComponent implements OnInit {
     this.auth.redirect('/peliculas/listado');
   }
 
-  ObtenerActores(): void {
+  obtenerActores(): void {
     this.actores.obtenerActores().then(x => {  this.listadoActores = x;  });
   }
 

@@ -58,6 +58,7 @@ export class AuthService {
 
   async logOut(): Promise<void> {
     await this.afAuth.signOut().then(res => {
+      this.guardarEnStorage(undefined);
       this.redirect(this.paginaLogin);
       return res;
     }).catch(error => {
