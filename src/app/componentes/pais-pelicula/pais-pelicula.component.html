@@ -1,0 +1,24 @@
+
+<div class="container">
+  <div class="col-md-3 order-md-2 mb-4">
+    <app-tabla-paises [paisPelicula]="true" (paisSeleccionado)="seleccionPais($event)"  ></app-tabla-paises>
+  </div>
+</div>
+<div class="container">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <div class="row">
+        <div *ngIf="this.pelicula != undefined" class="col-md-4">
+          <app-detalle-pelicula [peliculaSeleccionada]="pelicula"></app-detalle-pelicula>
+        </div>
+        <div *ngIf="this.actor != undefined" class="col-md-4">
+          <app-detalle-actores [actorSeleccionado]="actor"></app-detalle-actores>
+        </div>
+        <div *ngIf="this.nacionalidad != undefined" class="col-md-4">
+          <app-detalle-pais [nacionalidad]="nacionalidad"></app-detalle-pais>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

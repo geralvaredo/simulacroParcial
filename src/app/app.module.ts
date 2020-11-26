@@ -37,6 +37,7 @@ import { BtnBorrarComponent } from './componentes/btn-borrar/btn-borrar.componen
 import { BtnModificarComponent } from './componentes/btn-modificar/btn-modificar.component';
 import { ActorPeliculaComponent } from './componentes/actor-pelicula/actor-pelicula.component';
 import { BtnDetalleComponent } from './componentes/btn-detalle/btn-detalle.component';
+import { PaisPeliculaComponent } from './componentes/pais-pelicula/pais-pelicula.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { BtnDetalleComponent } from './componentes/btn-detalle/btn-detalle.compo
     BtnBorrarComponent,
     BtnModificarComponent,
     ActorPeliculaComponent,
-    BtnDetalleComponent
+    BtnDetalleComponent,
+    PaisPeliculaComponent
   ],
   imports: [
     BrowserModule,

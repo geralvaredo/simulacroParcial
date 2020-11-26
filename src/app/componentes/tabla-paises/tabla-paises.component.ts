@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Paises} from '../../clases/paises';
 import {PaisesService} from '../../servicios/paises.service';
 import {Actor} from '../../clases/actor';
@@ -12,7 +12,10 @@ export class TablaPaisesComponent implements OnInit {
 
   listado: Array<any> = [];
   @Input() actor: Actor;
+  @Output() paisSeleccionado: EventEmitter<any> = new EventEmitter<any>();
+  nacionalidad: Paises;
   public seleccionado: boolean;
+  @Input() paisPelicula: boolean;
 
   constructor(private pais: PaisesService) { }
 
@@ -32,8 +35,16 @@ export class TablaPaisesComponent implements OnInit {
   }
 
   guardarPais(pais: Paises): void{
-    this.actor.nacionalidad = pais;
+    this.nacionalidad = pais;
+    if(!this.paisPelicula){
+      this.actor.nacionalidad = pais;
+    }
     this.seleccionado = true;
+    this.seleccionPais(pais);
+  }
+
+  public seleccionPais(pais: Paises): void {
+    this.paisSeleccionado.emit(pais);
   }
 
 

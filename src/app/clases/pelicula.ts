@@ -1,4 +1,5 @@
 import {Actor} from './actor';
+import {Paises} from './paises';
 
 export class Pelicula {
     id: string ;
@@ -7,5 +8,6 @@ export class Pelicula {
     fechaDeEstreno: Date ;
     cantidadDePublico: number;
     foto: string ;
+    nacionalidad: Paises;
     actor: Actor ;
 }
