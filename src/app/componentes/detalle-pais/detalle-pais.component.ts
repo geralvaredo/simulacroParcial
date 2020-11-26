@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Actor} from '../../clases/actor';
+import {Paises} from '../../clases/paises';
 
 @Component({
   selector: 'app-detalle-pais',
@@ -9,6 +10,7 @@ import {Actor} from '../../clases/actor';
 export class DetallePaisComponent implements OnInit {
 
   @Input() actor: Actor;
+  @Input() nacionalidad: Paises;
   constructor() { }
 
   ngOnInit(): void {

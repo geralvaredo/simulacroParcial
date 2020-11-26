@@ -4,6 +4,7 @@ import {Pelicula} from '../../clases/pelicula';
 import {PeliculasService} from '../../servicios/peliculas.service';
 import {ActoresService} from '../../servicios/actores.service';
 import {AuthService} from '../../servicios/auth.service';
+import {Paises} from '../../clases/paises';
 
 @Component({
   selector: 'app-pelicula-alta',
@@ -14,12 +15,14 @@ export class PeliculaAltaComponent implements OnInit {
 
   public pelicula: Pelicula;
   public actor: Actor;
+  public nacionalidad: Paises;
   listadoActores: Array<Actor>;
   public descError: boolean;
   public tipoError: boolean;
   public fechaDeVencError: boolean;
   public precioError: boolean;
   public actorError: boolean;
+  public paisError: boolean;
 
   constructor(private peliculas: PeliculasService,
               private actores: ActoresService,
@@ -35,19 +38,22 @@ export class PeliculaAltaComponent implements OnInit {
     this.actor = null;
     this.pelicula = new Pelicula();
     this.actor = new Actor();
+    this.nacionalidad = new Paises();
 
     this.peliculas.contadorPeliculas().subscribe(
       (lista) => {
         this.pelicula.id = (lista.length + 1).toString();
       }
     );
-
+    this.nacionalidad.name = '';
+    // this.pelicula.nacionalidad.name = '';
     this.pelicula.tipo = null;
     this.descError = false;
     this.tipoError = false;
     this.fechaDeVencError = false;
     this.precioError = false;
     this.actorError = false;
+    this.paisError = false;
   }
 
   agregar(): void {
@@ -77,6 +83,12 @@ export class PeliculaAltaComponent implements OnInit {
       this.precioError = true;
       result = false;
     }
+    // tslint:disable-next-line:triple-equals
+    if (this.pelicula.nacionalidad.name == null || this.pelicula.nacionalidad.name == undefined){
+     this.paisError = true;
+     result = false;
+
+    }
 
     return result;
   }
@@ -92,6 +104,13 @@ export class PeliculaAltaComponent implements OnInit {
   seleccionado(e): void {
     this.actor = e;
     this.pelicula.actor = this.actor;
+  }
+
+  seleccionPais(e): void {
+    console.log(e);
+    this.nacionalidad = e ;
+    this.pelicula.nacionalidad = this.nacionalidad;
+
   }
 
 }

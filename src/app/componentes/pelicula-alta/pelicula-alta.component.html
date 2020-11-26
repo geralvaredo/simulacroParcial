@@ -1,14 +1,17 @@
 <div class="container">
 <div class="d-flex justify-content-around">
   <h4 class="card-title">Ingreso de Peliculas</h4>
-  <h4 class="card-title">Actores</h4>
+  <h4 class="card-title">Actores / Paises</h4>
 </div>
 
 <div class="row">
-  <div class="col-md-4 order-md-2 mb-4">
+  <div class="col-md-3 order-md-2 mb-4 scroll">
     <app-tabla-actor [verDetalle]="false" (actorSeleccionado)="seleccionado($event)"></app-tabla-actor>
   </div>
-  <div class="col-md-8 order-md-1">
+  <div class="col-md-3 order-md-2 mb-4">
+    <app-tabla-paises  [actor]="actor"  (paisSeleccionado)="seleccionPais($event)"  ></app-tabla-paises>
+  </div>
+  <div class="col-md-6 order-md-1">
     <div class="card">
       <article class="card-body">
         <div class="row">
@@ -42,6 +45,11 @@
             <label>Actor</label>
             <input class="form-control" disabled  name="actor"  [value] = "actor.nombre + ' ' + actor.apellido">
             <label *ngIf="actorError" class="form-text text-danger">Falta seleccionar un actor</label>
+          </div>
+          <div *ngIf="pelicula.nacionalidad != undefined" class="col-md-12 mb-3">
+            <label>Pais</label>
+            <input disabled class="form-control" type="text" id="nombrePais" [value]="pelicula.nacionalidad.name" min="1">
+            <label *ngIf="paisError" class="form-text text-danger">Falta ingresar el pais</label>
           </div>
           <div class="col-md-12 mb-3">
             <div class="d-flex justify-content-center">

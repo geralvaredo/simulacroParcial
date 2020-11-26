@@ -10,6 +10,7 @@ import {ActorAltaComponent} from './componentes/actor-alta/actor-alta.component'
 import {PeliculasComponent} from './componentes/peliculas/peliculas.component';
 import {ActorComponent} from './componentes/actor/actor.component';
 import {ActorPeliculaComponent} from './componentes/actor-pelicula/actor-pelicula.component';
+import {PaisPeliculaComponent} from './componentes/pais-pelicula/pais-pelicula.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path: 'actor/alta' , component : ActorAltaComponent },
   {path: 'error', component : ErrorComponent},
   {path: 'registro' , component: RegistroComponent},
-  {path: 'actorPelicula' , component: ActorPeliculaComponent }
+  {path: 'actorPelicula' , component: ActorPeliculaComponent },
+  {path: 'paisPelicula' , component: PaisPeliculaComponent }
 
 ];
 
